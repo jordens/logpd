@@ -18,12 +18,12 @@ C 44600 50700 1 0 1 BNC-1.sym
 T 44250 51350 5 10 0 0 0 6 1
 device=BNC
 T 44600 51500 5 10 1 1 0 6 1
-refdes=CONN1
+refdes=X2
 }
 C 41800 53500 1 0 0 connector2-2.sym
 {
 T 42500 54800 5 10 1 1 0 6 1
-refdes=P1
+refdes=X1
 T 42100 54750 5 10 0 0 0 0 1
 device=CONNECTOR_2
 T 42100 54950 5 10 0 0 0 0 1
@@ -36,7 +36,7 @@ C 32100 50900 1 0 0 photodiode-1.sym
 T 32600 52000 5 10 0 0 0 0 1
 device=photodiode
 T 32400 51200 5 10 1 1 180 0 1
-refdes=PD2
+refdes=D2
 }
 C 41200 54300 1 0 0 5V-plus-1.sym
 C 34000 48100 1 0 0 adl5304.sym
@@ -525,7 +525,7 @@ C 30400 50500 1 0 0 photodiode-1.sym
 T 30900 51600 5 10 0 0 0 0 1
 device=photodiode
 T 30700 50800 5 10 1 1 180 0 1
-refdes=PD1
+refdes=D1
 }
 C 32500 52800 1 180 0 capacitor-1.sym
 {
@@ -621,45 +621,47 @@ value=0
 T 30500 52000 5 10 1 1 180 0 1
 comment=DNI
 }
-C 29600 54400 1 0 0 testpt-1.sym
+C 30300 55100 1 0 0 testpt-1.sym
 {
-T 29900 54700 5 10 1 1 0 0 1
-refdes=TP2
-T 30000 55300 5 10 0 0 0 0 1
+T 30500 55300 5 10 1 1 0 0 1
+refdes=P2
+T 30700 56000 5 10 0 0 0 0 1
 device=TESTPOINT
-T 30000 55100 5 10 0 0 0 0 1
-footprint=none
+T 30700 55800 5 10 0 0 0 0 1
+footprint=testpad_1mm
+T 30500 55100 5 10 1 1 0 0 1
+net=2VLT:1
 }
-N 29700 54400 30500 54400 4
+C 30300 54600 1 0 0 testpt-1.sym
 {
-T 29900 54500 5 10 1 1 0 0 1
-netname=2VLT
-}
-C 29600 53700 1 0 0 testpt-1.sym
-{
-T 30000 54600 5 10 0 0 0 0 1
+T 30700 55500 5 10 0 0 0 0 1
 device=TESTPOINT
-T 30000 54400 5 10 0 0 0 0 1
-footprint=none
-T 29900 54000 5 10 1 1 0 0 1
-refdes=TP3
+T 30700 55300 5 10 0 0 0 0 1
+footprint=testpad_1mm
+T 30500 54800 5 10 1 1 0 0 1
+refdes=P4
+T 30500 54600 5 10 1 1 0 0 1
+net=+5V:1
 }
-N 29700 53700 30500 53700 4
+C 29500 55100 1 0 0 testpt-1.sym
 {
-T 29900 53800 5 10 1 1 0 0 1
-netname=VSUM
-}
-C 29600 55000 1 0 0 testpt-1.sym
-{
-T 30000 55900 5 10 0 0 0 0 1
+T 29900 56000 5 10 0 0 0 0 1
 device=TESTPOINT
-T 30000 55700 5 10 0 0 0 0 1
-footprint=none
-T 29900 55300 5 10 1 1 0 0 1
-refdes=TP1
+T 29900 55800 5 10 0 0 0 0 1
+footprint=testpad_1mm
+T 29700 55300 5 10 1 1 0 0 1
+refdes=P1
+T 29700 55100 5 10 1 1 0 0 1
+net=1P5V:1
 }
-N 29700 55000 30500 55000 4
+C 29500 54600 1 0 0 testpt-1.sym
 {
-T 29900 55100 5 10 1 1 0 0 1
-netname=1P5V
+T 29900 55500 5 10 0 0 0 0 1
+device=TESTPOINT
+T 29900 55300 5 10 0 0 0 0 1
+footprint=testpad_1mm
+T 29700 54800 5 10 1 1 0 0 1
+refdes=P3
+T 29700 54600 5 10 1 1 0 0 1
+net=VSUM:1
 }
