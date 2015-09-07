@@ -1,0 +1,3 @@
+schematics logpd.sch
+output-name logpd
+elements-dir fp
