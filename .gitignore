@@ -4,3 +4,6 @@
 *.bak?
 *.bak
 *.backup
+*.gbr
+*.png
+*.pd
