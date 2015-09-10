@@ -22,13 +22,6 @@ refdes=X2
 T 44600 50700 5 10 1 1 0 0 1
 value=VLOG
 }
-C 32100 50900 1 0 0 photodiode-1.sym
-{
-T 32600 52000 5 10 0 0 0 0 1
-device=photodiode
-T 32400 51200 5 10 1 1 180 0 1
-refdes=D2
-}
 C 41200 54300 1 0 0 5V-plus-1.sym
 C 34000 48100 1 0 0 adl5304.sym
 {
@@ -451,13 +444,6 @@ N 32600 50900 34000 50900 4
 N 32600 51800 32600 52600 4
 N 41400 54300 41800 54300 4
 C 41700 53100 1 0 0 gnd-1.sym
-C 30400 50500 1 0 0 photodiode-1.sym
-{
-T 30900 51600 5 10 0 0 0 0 1
-device=photodiode
-T 30700 50800 5 10 1 1 180 0 1
-refdes=D1
-}
 C 32500 52800 1 180 0 capacitor-1.sym
 {
 T 32300 52100 5 10 0 0 180 0 1
@@ -657,3 +643,35 @@ value=10Rs
 }
 N 33600 52000 33700 52000 4
 N 32600 52000 32700 52000 4
+C 30400 50500 1 0 0 photodiode-case-1.sym
+{
+T 30900 51600 5 10 0 0 0 0 1
+device=photodiode
+T 31300 51300 5 10 1 1 180 0 1
+refdes=D1
+T 30400 50500 5 10 1 1 0 0 1
+value=DEN
+T 30400 50500 5 10 0 1 0 0 1
+footprint=photodiode_universal
+}
+C 32100 50900 1 0 0 photodiode-case-1.sym
+{
+T 32600 52000 5 10 0 0 0 0 1
+device=photodiode
+T 33000 51700 5 10 1 1 180 0 1
+refdes=D2
+T 32100 50900 5 10 1 1 0 0 1
+value=DEN
+T 32100 50900 5 10 0 1 0 0 1
+footprint=photodiode_universal
+}
+N 31300 50900 31700 50900 4
+{
+T 31300 50900 5 10 1 1 0 0 1
+netname=VSUM
+}
+N 33000 51300 33400 51300 4
+{
+T 33000 51300 5 10 1 1 0 0 1
+netname=VSUM
+}
