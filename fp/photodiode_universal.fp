@@ -1,0 +1,28 @@
+
+Element["" "" "" "" 105.10mil 3.6228mm 0.0000 0.0000 0 100 ""]
+(
+	Pin[-50.00mil 0.0000 60.00mil 20.00mil 66.00mil 25.00mil "2" "2" ""]
+	Pin[50.00mil 0.0000 60.00mil 20.00mil 66.00mil 25.00mil "2" "2" ""]
+	Pin[0.0000 -50.00mil 45.00mil 20.00mil 51.00mil 25.00mil "3" "3" ""]
+	Pin[0.0000 50.00mil 45.00mil 20.00mil 51.00mil 25.00mil "1" "1" ""]
+	Pin[0.0000 -100.00mil 55.00mil 20.00mil 61.00mil 30.00mil "3" "3" ""]
+	Pin[0.0000 100.00mil 55.00mil 20.00mil 61.00mil 30.00mil "1" "1" "square"]
+	Pin[0.0000 0.0000 34.00mil 20.00mil 40.00mil 20.00mil "2" "2" ""]
+	ElementLine [60.00mil 80.00mil 80.00mil 100.00mil 10.00mil]
+	ElementLine [80.00mil 100.00mil 100.00mil 80.00mil 10.00mil]
+	ElementLine [100.00mil 80.00mil 80.00mil 60.00mil 10.00mil]
+	ElementLine [-80.00mil -100.00mil -60.00mil -80.00mil 10.00mil]
+	ElementLine [-100.00mil -80.00mil -80.00mil -100.00mil 10.00mil]
+	ElementLine [-80.00mil -60.00mil -100.00mil -80.00mil 10.00mil]
+	ElementLine [-100.00mil 125.00mil -100.00mil 95.00mil 10.00mil]
+	ElementLine [-100.00mil 95.00mil -85.00mil 80.00mil 10.00mil]
+	ElementLine [-85.00mil 80.00mil -70.00mil 95.00mil 10.00mil]
+	ElementLine [-70.00mil 95.00mil -70.00mil 125.00mil 10.00mil]
+	ElementLine [-100.00mil 110.00mil -70.00mil 110.00mil 10.00mil]
+	ElementLine [-100.00mil -100.00mil 100.00mil -100.00mil 10.00mil]
+	ElementArc [0.0000 0.0000 100.00mil 100.00mil 270 90 10.00mil]
+	ElementArc [0.0000 0.0000 100.00mil 100.00mil 0 90 10.00mil]
+	ElementArc [0.0000 0.0000 100.00mil 100.00mil 90 90 10.00mil]
+	ElementArc [0.0000 0.0000 100.00mil 100.00mil 180 90 10.00mil]
+
+	)
