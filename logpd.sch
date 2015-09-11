@@ -1,4 +1,4 @@
-v 20130925 2
+v 20140308 2
 C 41200 54300 1 270 0 capacitor-4.sym
 {
 T 42300 54100 5 10 0 0 270 0 1
@@ -21,6 +21,10 @@ T 44600 51500 5 10 1 1 0 6 1
 refdes=X2
 T 44600 50700 5 10 1 1 0 0 1
 value=VLOG
+T 44600 50700 5 10 0 1 0 0 1
+footprint=SMA_edge_025
+T 44600 50700 5 10 0 0 0 0 1
+documentation=https://cinchconnectivity.com/OA_MEDIA/drawings/dr-1420711821.pdf
 }
 C 41200 54300 1 0 0 5V-plus-1.sym
 C 34000 48100 1 0 0 adl5304.sym
