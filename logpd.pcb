@@ -9,7 +9,7 @@ Grid[500.000000 0.0000 0.0000 0]
 PolyArea[3100.006200]
 Thermal[0.500000]
 DRC[7.00mil 7.00mil 7.00mil 5.00mil 15.00mil 7.00mil]
-Flags("localref,showdrc,nameonpcb,autodrc,clearnew,showmask,thindrawpoly,locknames")
+Flags("localref,showdrc,nameonpcb,autodrc,clearnew,showmask,thindrawpoly,onlynames")
 Groups("1,c:2:3:4:5:6,s:7:8")
 Styles["Signal,10.00mil,8.00mil,15.00mil,10.00mil:Power,0.25mil,0.60mil,0.35mil,0.10mil:Fat,0.40mil,0.60mil,0.35mil,0.10mil:Skinny,0.06mil,0.24mil,0.12mil,6.00mil"]
 
@@ -790,8 +790,6 @@ Attribute("import::disperse" "50")
 Attribute("PCB::grid::size" "5.00mil")
 Via[1625.00mil 575.00mil 85.00mil 24.00mil 94.00mil 85.00mil "" "hole"]
 Via[1625.00mil 1225.00mil 85.00mil 24.00mil 94.00mil 85.00mil "" "hole"]
-Via[1550.00mil 840.00mil 29.00mil 20.00mil 0.0000 15.00mil "" "thermal(0S,5S)"]
-Via[1550.00mil 940.00mil 29.00mil 20.00mil 0.0000 15.00mil "" "thermal(0S,5S)"]
 Via[575.00mil 1225.00mil 85.00mil 24.00mil 94.00mil 85.00mil "" "hole"]
 Via[575.00mil 575.00mil 85.00mil 24.00mil 94.00mil 85.00mil "" "hole"]
 Via[1000.00mil 565.00mil 29.00mil 20.00mil 0.0000 15.00mil "" "thermal(0S,5S)"]
@@ -815,11 +813,9 @@ Via[1325.00mil 1185.00mil 29.00mil 20.00mil 0.0000 15.00mil "" ""]
 Via[670.00mil 1250.00mil 29.00mil 20.00mil 0.0000 15.00mil "" "thermal(0S,5S)"]
 Via[690.00mil 550.00mil 29.00mil 20.00mil 0.0000 15.00mil "" "thermal(0S,5S)"]
 Via[610.00mil 900.00mil 50.00mil 20.00mil 57.00mil 30.00mil "" "thermal(0X,5X)"]
-Via[1665.00mil 940.00mil 29.00mil 20.00mil 0.0000 15.00mil "" "thermal(0S,5S)"]
-Via[1665.00mil 840.00mil 29.00mil 20.00mil 0.0000 15.00mil "" "thermal(0S,5S)"]
 Via[810.00mil 900.00mil 50.00mil 20.00mil 57.00mil 30.00mil "" "thermal(0X,5X)"]
-Via[1495.00mil 1040.00mil 29.00mil 20.00mil 0.0000 15.00mil "" ""]
-Via[1495.00mil 885.00mil 29.00mil 20.00mil 0.0000 15.00mil "" ""]
+Via[1495.00mil 1030.00mil 29.00mil 20.00mil 0.0000 15.00mil "" ""]
+Via[1495.00mil 890.00mil 29.00mil 20.00mil 0.0000 15.00mil "" ""]
 Via[1315.00mil 755.00mil 29.00mil 20.00mil 0.0000 15.00mil "" "thermal(0S,5S)"]
 Via[1200.00mil 575.00mil 29.00mil 20.00mil 0.0000 15.00mil "" "thermal(0S,5S)"]
 Via[1300.00mil 660.00mil 29.00mil 20.00mil 0.0000 15.00mil "" "thermal(0S,5S)"]
@@ -832,6 +828,10 @@ Via[1665.00mil 1155.00mil 29.00mil 20.00mil 0.0000 15.00mil "" "thermal(0S,5S)"]
 Via[1355.00mil 1130.00mil 29.00mil 20.00mil 0.0000 15.00mil "" "thermal(0S,5S)"]
 Via[1280.00mil 960.00mil 29.00mil 20.00mil 0.0000 15.00mil "" "thermal(0S,5S)"]
 Via[1290.00mil 1255.00mil 29.00mil 20.00mil 0.0000 15.00mil "" "thermal(0S,5S)"]
+Via[1550.00mil 845.00mil 29.00mil 20.00mil 0.0000 15.00mil "" "thermal(0S,5S)"]
+Via[1550.00mil 935.00mil 29.00mil 20.00mil 0.0000 15.00mil "" "thermal(0S,5S)"]
+Via[1665.00mil 935.00mil 29.00mil 20.00mil 0.0000 15.00mil "" "thermal(0S,5S)"]
+Via[1665.00mil 845.00mil 29.00mil 20.00mil 0.0000 15.00mil "" "thermal(0S,5S)"]
 
 Element["" "solderbridge" "R2" "0" 980.00mil 610.00mil -15.00mil -100.00mil 0 77 ""]
 (
@@ -852,7 +852,7 @@ Element["" "0603" "C3" "47p" 980.00mil 665.00mil -120.00mil -35.00mil 0 77 ""]
 
 	)
 
-Element["" "solderbridge" "R18" "0" 1405.00mil 870.00mil 25.00mil -60.00mil 0 77 ""]
+Element["" "solderbridge" "R18" "0" 1405.00mil 870.00mil 30.00mil -35.00mil 0 77 ""]
 (
 	Pad[-17.00mil 3.00mil -17.00mil 11.00mil 6.00mil 20.00mil 16.00mil "1" "1" "square,edge2"]
 	Pad[17.00mil 3.00mil 17.00mil 11.00mil 6.00mil 20.00mil 16.00mil "1" "1" "square,edge2"]
@@ -907,7 +907,7 @@ Element["" "0603" "C11" "22p" 1290.00mil 830.00mil -45.00mil 45.00mil 0 77 ""]
 
 	)
 
-Element["" "QFN32_5_EP" "U1" "unknown" 1110.00mil 900.00mil -185.00mil -70.00mil 0 77 ""]
+Element["" "QFN32_5_EP" "U1" "unknown" 1110.00mil 900.00mil -180.00mil -75.00mil 0 77 ""]
 (
 	Pad[-102.75mil -68.89mil -86.22mil -68.89mil 11.02mil 20.00mil 16.00mil "NC" "1" "square"]
 	Pad[-102.75mil -49.21mil -86.22mil -49.21mil 11.02mil 20.00mil 16.00mil "VSM1" "2" "square"]
@@ -971,7 +971,7 @@ Element["" "0603" "R12" "0" 970.00mil 1130.00mil -40.00mil 100.00mil 0 77 ""]
 
 	)
 
-Element["" "testpad_1mm" "P1" "unknown" 1235.00mil 605.00mil -5.00mil -65.00mil 0 77 ""]
+Element["" "testpad_1mm" "P1" "unknown" 1235.00mil 605.00mil -10.00mil -65.00mil 0 77 ""]
 (
 	Attribute("gedasymbols::url" "http://www.gedasymbols.org/user/stanislav_brabec/footprints/generic/testpad_1mm.fp")
 	Pad[0.01mil 0.0000 0.02mil 0.0000 39.37mil 20.00mil 45.00mil "1" "1" ""]
@@ -992,7 +992,7 @@ Element["" "testpad_1mm" "P3" "unknown" 1290.00mil 715.00mil -5.00mil -60.00mil 
 
 	)
 
-Element["" "0603" "R7" "0" 980.00mil 720.00mil -50.00mil 20.00mil 0 77 ""]
+Element["" "0603" "R7" "0" 980.00mil 720.00mil 50.00mil 0.0000 0 77 ""]
 (
 	Pad[25.59mil -4.92mil 25.59mil 4.92mil 29.52mil 20.00mil 35.00mil "1" "1" "square"]
 	Pad[-25.59mil -4.92mil -25.59mil 4.92mil 29.52mil 20.00mil 35.00mil "2" "2" "square"]
@@ -1027,7 +1027,7 @@ Element["" "0603" "R10" "4.02" 1160.00mil 700.00mil -40.00mil 35.00mil 0 79 ""]
 
 	)
 
-Element["" "0603" "C6" "1u" 1160.00mil 600.00mil 30.00mil -90.00mil 0 77 ""]
+Element["" "0603" "C6" "1u" 1160.00mil 600.00mil 20.00mil -90.00mil 0 77 ""]
 (
 	Pad[-4.92mil 25.59mil 4.92mil 25.59mil 29.52mil 20.00mil 35.00mil "1" "1" "square"]
 	Pad[-4.92mil -25.59mil 4.92mil -25.59mil 29.52mil 20.00mil 35.00mil "2" "2" "square"]
@@ -1110,7 +1110,7 @@ Element["" "solderbridge" "R11" "0" 900.00mil 695.00mil -60.00mil 55.00mil 0 77 
 
 	)
 
-Element["" "0603" "L1" "1u" 1100.00mil 570.00mil 35.00mil -60.00mil 0 77 ""]
+Element["" "0603" "L1" "1u" 1100.00mil 570.00mil 30.00mil -60.00mil 0 77 ""]
 (
 	Pad[-4.92mil -25.59mil 4.92mil -25.59mil 29.52mil 20.00mil 35.00mil "1" "1" "square"]
 	Pad[-4.92mil 25.59mil 4.92mil 25.59mil 29.52mil 20.00mil 35.00mil "2" "2" "square"]
@@ -1221,7 +1221,7 @@ Element["" "solderbridge" "R5" "0" 750.00mil 585.00mil -80.00mil -30.00mil 0 77 
 
 	)
 
-Element["" "photodiode_universal" "D1" "DEN" 710.00mil 1065.00mil -75.00mil 95.00mil 0 77 ""]
+Element["" "photodiode_universal" "D1" "DEN" 710.00mil 1065.00mil -60.00mil 105.00mil 0 77 ""]
 (
 	Pin[0.0000 50.00mil 60.00mil 20.00mil 66.00mil 25.00mil "2" "2" "edge2"]
 	Pin[0.0000 -50.00mil 60.00mil 20.00mil 66.00mil 25.00mil "2" "2" "edge2"]
@@ -1249,7 +1249,7 @@ Element["" "photodiode_universal" "D1" "DEN" 710.00mil 1065.00mil -75.00mil 95.0
 
 	)
 
-Element["" "testpad_1mm" "P4" "unknown" 1290.00mil 575.00mil -35.00mil -65.00mil 0 77 ""]
+Element["" "testpad_1mm" "P4" "unknown" 1290.00mil 575.00mil -25.00mil -65.00mil 0 77 ""]
 (
 	Attribute("gedasymbols::url" "http://www.gedasymbols.org/user/stanislav_brabec/footprints/generic/testpad_1mm.fp")
 	Pad[0.01mil 0.0000 0.02mil 0.0000 39.37mil 20.00mil 45.00mil "1" "1" ""]
@@ -1381,14 +1381,14 @@ Element["" "SMA_edge_025" "X2" "VLOG" 1695.00mil 1000.00mil -100.00mil 30.00mil 
 
 	)
 
-Element["" "0603" "R17" "453" 1490.00mil 960.00mil -45.00mil -110.00mil 0 77 ""]
+Element["" "0603" "R17" "453" 1490.00mil 960.00mil 80.00mil -40.00mil 0 77 ""]
 (
 	Pad[-4.92mil -25.59mil 4.92mil -25.59mil 29.52mil 20.00mil 35.00mil "1" "1" "square"]
 	Pad[-4.92mil 25.59mil 4.92mil 25.59mil 29.52mil 20.00mil 35.00mil "2" "2" "square"]
 
 	)
 
-Element["" "solderbridge" "R9" "0" 930.00mil 1015.00mil -75.00mil -10.00mil 0 77 ""]
+Element["" "solderbridge" "R9" "0" 930.00mil 1015.00mil -75.00mil -20.00mil 0 77 ""]
 (
 	Pad[17.00mil -11.00mil 17.00mil -3.00mil 6.00mil 20.00mil 16.00mil "1" "1" "square"]
 	Pad[-17.00mil -11.00mil -17.00mil -3.00mil 6.00mil 20.00mil 16.00mil "1" "1" "square"]
@@ -1679,9 +1679,9 @@ Layer(1 "top")
 	Line[29.9438mm 785.00mil 30.0708mm 780.00mil 10.00mil 20.00mil "clearline"]
 	Line[1210.00mil 780.00mil 30.0708mm 780.00mil 10.00mil 20.00mil "clearline"]
 	Line[1485.00mil 28.9390mm 1495.00mil 28.6850mm 10.00mil 20.00mil "clearline"]
-	Line[1495.00mil 28.6850mm 1495.00mil 1040.00mil 10.00mil 20.00mil "clearline"]
+	Line[1495.00mil 28.6850mm 1495.00mil 1030.00mil 10.00mil 20.00mil "clearline"]
 	Line[1445.00mil 755.00mil 1495.00mil 805.00mil 10.00mil 20.00mil "clearline"]
-	Line[1495.00mil 805.00mil 1495.00mil 885.00mil 10.00mil 20.00mil "clearline"]
+	Line[1495.00mil 805.00mil 1495.00mil 890.00mil 10.00mil 20.00mil "clearline"]
 	Line[1550.00mil 1060.00mil 1665.00mil 1060.00mil 20.00mil 20.00mil ""]
 	Line[908.00mil 682.00mil 920.00mil 670.00mil 10.00mil 20.00mil "clearline"]
 	Line[920.00mil 670.00mil 920.00mil 655.00mil 10.00mil 20.00mil "clearline"]
@@ -1760,6 +1760,17 @@ Layer(9 "bottom silk")
 )
 Layer(10 "top silk")
 (
+	Line[1555.00mil 570.00mil 1555.00mil 600.00mil 10.00mil 20.00mil "clearline"]
+	Line[1555.00mil 600.00mil 1580.00mil 625.00mil 10.00mil 20.00mil "clearline"]
+	Line[870.00mil 735.00mil 870.00mil 750.00mil 10.00mil 20.00mil "clearline"]
+	Line[965.00mil 1225.00mil 965.00mil 1180.00mil 10.00mil 20.00mil "clearline"]
+	Line[1580.00mil 1180.00mil 1580.00mil 1195.00mil 10.00mil 20.00mil "clearline"]
+	Line[1580.00mil 1195.00mil 1565.00mil 1210.00mil 10.00mil 20.00mil "clearline"]
+	Line[1450.00mil 1270.00mil 1450.00mil 1275.00mil 10.00mil 20.00mil "clearline"]
+	Line[1450.00mil 1275.00mil 1455.00mil 1280.00mil 10.00mil 20.00mil "clearline"]
+	Line[1455.00mil 1280.00mil 1485.00mil 1280.00mil 10.00mil 20.00mil "clearline"]
+	Line[1520.00mil 960.00mil 1535.00mil 945.00mil 10.00mil 20.00mil "clearline"]
+	Line[1535.00mil 945.00mil 1560.00mil 945.00mil 10.00mil 20.00mil "clearline"]
 	Text[650.00mil 505.00mil 0 77 "10mV/dB+1.5V" "clearline"]
 	Text[500.00mil 1165.00mil 1 77 "qc-ed-114" "clearline"]
 	Text[540.00mil 1155.00mil 1 77 "v0.2 2015" "clearline"]
@@ -1769,8 +1780,9 @@ Layer(10 "top silk")
 	Text[520.00mil 830.00mil 0 77 "num" "clearline"]
 	Text[540.00mil 845.00mil 1 77 "nist/is/rj" "clearline"]
 	Text[500.00mil 840.00mil 1 77 "logpd" "clearline"]
-	Text[1365.00mil 730.00mil 0 100 "-" "clearline"]
-	Text[1610.00mil 795.00mil 0 100 "+" "clearline"]
+	Text[1435.00mil 795.00mil 0 100 "-" "clearline"]
+	Text[1635.00mil 795.00mil 0 100 "+" "clearline"]
+	Text[1515.00mil 810.00mil 0 77 "GND" "clearline"]
 )
 NetList()
 (
