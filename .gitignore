@@ -11,3 +11,5 @@
 *.ps
 *.eps
 *.pdf
+*.gerber-stamp
+*.bom
