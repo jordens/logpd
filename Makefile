@@ -46,9 +46,6 @@ sch : $(TARGET).sch
 %.sym: %.tsym
 	tragesym $< $@
 
-%.sch.pdf: %.sch
-	gaf export -o $@ $<
-
 #.PHONY: update-pcb
 #update-pcb: symbols
 #	gsch2pcb project | tee pcb.log
@@ -79,7 +76,9 @@ pcb: $(TARGET).pcb
 	ps2pdf $< $@
 
 %.sch.pdf: %.sch
-	gaf export $(GAF_PDF_FLAGS) --output $@ $<
+	# geda >= 1.9
+	#gaf export $(GAF_PDF_FLAGS) --output $@ $<
+	gschem -p -s /usr/share/gEDA/scheme/print.scm -o $@ $<
 
 %.merged-sch.pdf: $(SCHEMATICS:.sch=.sch.pdf)
 	pdfjoin -o $@ $+
