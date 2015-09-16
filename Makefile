@@ -1,36 +1,41 @@
-TARGET=logpd
+TARGET ?= logpd
 
-PCB_PNG_FLAGS := --dpi 1200 --only-visible --use-alpha --format PNG \
-		--photo-mode
-PCB_PRINT_PS_FLAGS := --drill-helper --align-marks --media Letter \
-	--scale 1 --show-legend --auto-mirror
-PCB_VIEW_PS_FLAGS := --fill-page --outline --ps-color --drill-copper \
+PCB_PNG_FLAGS ?= --dpi 1200 --only-visible --use-alpha --format PNG \
+	--photo-mode --photo-mask-colour purple --photo-plating gold \
+	--photo-silk-colour white
+PCB_PRINT_PS_FLAGS ?= --drill-helper --align-marks --media Letter --scale 1 \
+	--show-legend --auto-mirror
+PCB_VIEW_PS_FLAGS ?= --fill-page --outline --ps-color --drill-copper \
 	--media Letter
-PCB_EPS_FLAGS := --only-visible
-PCB_GERBER_FLAGS := --name-style fixed
-GAF_PDF_FLAGS := --paper Letter --color
+PCB_EPS_FLAGS ?= --only-visible
+PCB_GERBER_FLAGS ?= --name-style fixed
+GAF_PDF_FLAGS ?= --paper Letter --color
+GERBV_EXPORT_FLAGS ?= --border=5 --dpi=1200 --antialias
+MERGE_DRILL ?= 1
 
-TSYMS = $(wildcard sym/*.tsym)
+TSYMS := $(wildcard sym/*.tsym)
 TSYMBOLS := $(TSYMS:.tsym=.sym)
 SYMBOLS := $(sort $(TSYMBOLS) $(wildcard sym/*.sym))
 SCHEMATICS := $(name).sch $(wildcard sym/*.sch)
 
-all: \
-	$(TARGET).sch.pdf $(TARGET).bom \
+TARGETS := $(TARGET).sch.pdf $(TARGET).bom \
 	$(TARGET).top.png $(TARGET).bottom.png \
 	$(TARGET).print.pdf $(TARGET).view.pdf \
-	$(TARGET).gerber.zip
+	$(TARGET).gerber.zip \
+	$(if $(MERGE_DRILL),gerber/$(TARGET).drill.cnc,)
+
+PLUS_TARGETS := $(TARGET).eps \
+	$(TARGET).gerber.top.pdf $(TARGET).gerber.bottom.pdf \
+	gerber/$(TARGET).drill.cnc
+
+all: $(TARGETS)
 
 .PHONY: clean
 clean:
-	rm -f $(TSYMBOLS)
-	rm -f $(TARGET).gerber.zip $(TARGET).gerber-stamp
-	rm -f $(TARGET).top.png $(TARGET).bottom.png
-	rm -f $(TARGET).print.pdf $(TARGET).print.ps
-	rm -f $(TARGET).view.pdf $(TARGET).view.ps
-	rm -f $(TARGET).eps $(TARGET).bom
-	rm -f $(TARGET).merged-sch.pdf $(TARGET).sch.pdf
-	rm -f $(TARGET).bom
+	rm -f $(TSYMBOLS) $(TARGETS) $(PLUS_TARGETS)
+	rm -f $(TARGET).gerber-stamp
+	rm -f gerber/*
+	rmdir gerber
 
 tsymbols: $(TSYMBOLS)
 
@@ -81,22 +86,38 @@ pcb: $(TARGET).pcb
 	gschem -p -s /usr/share/gEDA/scheme/print.scm -o $@ $<
 
 %.merged-sch.pdf: $(SCHEMATICS:.sch=.sch.pdf)
-	pdfjoin -o $@ $+
+	pdfjoin -o $@ $^
 
-%.gerber-stamp : %.pcb
-	rm -f gerber/*
-	pcb -x gerber $(PCB_GERBER_FLAGS) --gerberfile gerber/$(TARGET) $<
+gerber:
+	mkdir -p gerber
+
+%.gerber-stamp : %.pcb | gerber
+	pcb -x gerber $(PCB_GERBER_FLAGS) --gerberfile gerber/$* $<
 	touch $@
 
-gerber/%.merged-drill.cnc: %.gerber-stamp
-	$(eval DRILLS := $(wildcard gerber/$(<:.gerber-stamp=.*-drill.cnc)))
-	gerbv -x drill -o $@ $(DRILLS)
-	rm $(DRILLS)
+gerber/%.drill.cnc: %.gerber-stamp
+	gerbv -x drill -o $@ gerber/$*.*-drill.cnc
+	rm gerber/$*.*-drill.cnc
 
-%.gerber.zip: %.gerber-stamp
-	rm -f $@
-	zip -j $@ gerber/*
+%.gerber.zip: %.gerber-stamp $(if $(MERGE_DRILL),gerber/%.drill.cnc,)
+	zip -j - gerber/$*.*.gbr gerber/$*.*.cnc $(wildcard README.fab.txt) > $@
 
 .PHONY: gerbv
 gerbv: $(TARGET).gerber-stamp
-	gerbv gerber/*.cnc gerber/*.gbr
+	gerbv gerber/$(TARGET).*.cnc gerber/$(TARGET).*.gbr
+
+%.gerber.top.pdf: %.gerber-stamp
+	gerbv --export pdf $(GERBV_EXPORT_FLAGS) --output $@ \
+		gerber/$*.*.cnc \
+ 		$(wildcard gerber/$*.outline.gbr) \
+ 		$(wildcard gerber/$*.topsilk.gbr) \
+ 		$(wildcard gerber/$*.topmask.gbr) \
+ 		$(wildcard gerber/$*.top.gbr)
+
+%.gerber.bottom.pdf: %.gerber-stamp
+	gerbv --export pdf $(GERBV_EXPORT_FLAGS) --output $@ \
+		gerber/$*.*.cnc \
+ 		$(wildcard gerber/$*.outline.gbr) \
+ 		$(wildcard gerber/$*.bottomsilk.gbr) \
+ 		$(wildcard gerber/$*.bottommask.gbr) \
+ 		$(wildcard gerber/$*.bottom.gbr)
