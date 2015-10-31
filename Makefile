@@ -32,10 +32,10 @@ all: $(TARGETS)
 
 .PHONY: clean
 clean:
-	rm -f $(TSYMBOLS) $(TARGETS) $(PLUS_TARGETS)
-	rm -f $(TARGET).gerber-stamp
-	rm -f gerber/*
-	rmdir gerber
+	-rm -f $(TSYMBOLS) $(TARGETS) $(PLUS_TARGETS)
+	-rm -f $(TARGET).gerber-stamp
+	-rm -f gerber/*
+	-rmdir gerber
 
 tsymbols: $(TSYMBOLS)
 
@@ -82,8 +82,8 @@ pcb: $(TARGET).pcb
 
 %.sch.pdf: %.sch
 	# geda >= 1.9
-	#gaf export $(GAF_PDF_FLAGS) --output $@ $<
-	gschem -p -s /usr/share/gEDA/scheme/print.scm -o $@ $<
+	strace -o d gaf export $(GAF_PDF_FLAGS) --output $@ $<
+	# gschem -p -s /usr/share/gEDA/scheme/print.scm -o $@ $<
 
 %.merged-sch.pdf: $(SCHEMATICS:.sch=.sch.pdf)
 	pdfjoin -o $@ $^
