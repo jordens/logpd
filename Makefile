@@ -44,6 +44,10 @@ check-symbols: $(TSYMBOLS)
 
 symbols: $(SYMBOLS)
 
+.PHONY: edit
+edit: $(TARGET).gsch2pcb
+	xgsch2pcb $<
+
 .PHONY: sch
 sch : $(TARGET).sch
 	gschem $<
