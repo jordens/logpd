@@ -1295,24 +1295,6 @@ Element["onsolder" "0603" "R17" "453" 1380.00mil 1000.00mil 40.00mil -80.00mil 3
 
 	)
 
-Element["onsolder" "0805" "L1" "1u" 1270.00mil 1140.00mil 31.50mil 31.50mil 3 77 "auto"]
-(
-	Pad[-3.93mil 35.43mil 3.93mil 35.43mil 51.18mil 20.00mil 57.18mil "1" "1" "onsolder,square"]
-	Pad[-3.93mil -35.43mil 3.93mil -35.43mil 51.18mil 20.00mil 57.18mil "2" "2" "onsolder,square"]
-	ElementLine [27.55mil -3.93mil 27.55mil 3.93mil 8.00mil]
-	ElementLine [-27.55mil -3.93mil -27.55mil 3.93mil 8.00mil]
-
-	)
-
-Element["onsolder" "0805" "L1" "1u" 260.00mil 620.00mil 31.50mil 31.50mil 3 77 "auto"]
-(
-	Pad[-3.93mil 35.43mil 3.93mil 35.43mil 51.18mil 20.00mil 57.18mil "1" "1" "onsolder,square"]
-	Pad[-3.93mil -35.43mil 3.93mil -35.43mil 51.18mil 20.00mil 57.18mil "2" "2" "onsolder,square"]
-	ElementLine [27.55mil -3.93mil 27.55mil 3.93mil 8.00mil]
-	ElementLine [-27.55mil -3.93mil -27.55mil 3.93mil 8.00mil]
-
-	)
-
 Element["" "testpad_1mm" "P3" "unknown" 810.00mil 1350.00mil 0.0000 0.0000 0 100 ""]
 (
 	Pad[0.01mil 0.0000 0.02mil 0.0000 39.37mil 20.00mil 1.5080mm "1" "1" "nopaste"]
@@ -1331,11 +1313,20 @@ Element["" "SIP3" "X1" "PWR" 1100.00mil 1380.00mil 40.00mil 110.00mil 2 100 ""]
 	ElementArc [-200.00mil 0.0000 50.00mil 50.00mil 270 180 10.00mil]
 
 	)
+
+Element["" "0805" "L2" "1u" 1630.00mil 1200.00mil -31.50mil -31.50mil 0 100 ""]
+(
+	Pad[-35.43mil -3.93mil -35.43mil 3.93mil 51.18mil 20.00mil 57.18mil "1" "1" "square"]
+	Pad[35.43mil -3.93mil 35.43mil 3.93mil 51.18mil 20.00mil 57.18mil "2" "2" "square"]
+	ElementLine [-3.93mil -27.55mil 3.93mil -27.55mil 8.00mil]
+	ElementLine [-3.93mil 27.55mil 3.93mil 27.55mil 8.00mil]
+
+	)
 Rat[28.0779mm 30.8882mm 5 1237.00mil 1232.00mil 5  ""]
 Rat[1237.00mil 1232.00mil 5 32.8950mm 31.3540mm 5  ""]
-Rat[1237.00mil 1232.00mil 5 32.1582mm 29.8559mm 5  ""]
 Rat[1237.00mil 1232.00mil 5 31.4955mm 1320.00mil 0  ""]
 Rat[31.4955mm 1320.00mil 0 1197.00mil 1349.00mil 0  ""]
+Rat[32.8950mm 31.3540mm 5 40.5021mm 30.3802mm 0  ""]
 Rat[21.7020mm 15.1150mm 5 849.98mil 630.00mil 0  ""]
 Rat[849.98mil 630.00mil 0 881.11mil 647.25mil 5  ""]
 Rat[881.11mil 647.25mil 5 780.00mil 1063.00mil 0  ""]
@@ -1381,7 +1372,7 @@ Rat[32.1330mm 21.4480mm 5 30.6220mm 20.4490mm 5  ""]
 Rat[30.6220mm 20.4490mm 5 26.7399mm 799.21mil 5  ""]
 Rat[29.0680mm 17.1470mm 5 26.7399mm 740.16mil 5  ""]
 Rat[29.3220mm 18.6710mm 5 26.7399mm 759.84mil 5  ""]
-Rat[29.3220mm 18.6710mm 5 32.1582mm 28.0561mm 5  ""]
+Rat[29.3220mm 18.6710mm 5 42.3019mm 30.3802mm 0  ""]
 Rat[26.0500mm 14.6070mm 5 1007.00mil 600.00mil 0  ""]
 Rat[1001.20mil 611.00mil 0 999.21mil 647.25mil 5  ""]
 Rat[24.7500mm 14.6070mm 5 979.52mil 647.25mil 5  ""]
@@ -1507,7 +1498,7 @@ NetList()
 		Connect("C10-1")
 		Connect("C16-1")
 		Connect("J15-1")
-		Connect("L1-1")
+		Connect("L2-1")
 		Connect("P4-1")
 		Connect("U2-5")
 	)
@@ -1598,7 +1589,7 @@ NetList()
 	Net("unnamed_net8" "(unknown)")
 	(
 		Connect("C8-1")
-		Connect("L1-2")
+		Connect("L2-2")
 		Connect("U1-29")
 	)
 	Net("unnamed_net9" "(unknown)")

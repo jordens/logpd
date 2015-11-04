@@ -13,7 +13,7 @@ unnamed_net12	J7-1 J6-1 U1-20
 unnamed_net11	J5-1 U1-21 
 unnamed_net10	J5-2 J14-2 J6-2 C11-2 R17-1 U1-22 
 unnamed_net9	J7-2 C11-1 U1-23 
-unnamed_net8	L1-2 C8-1 U1-29 
+unnamed_net8	L2-2 C8-1 U1-29 
 2VLT	J8-2 P2-1 C7-1 U1-17 
 unnamed_net7	R10-1 U1-28 
 unnamed_net6	R7-1 C3-1 U1-31 
@@ -25,4 +25,4 @@ unnamed_net2	C21-2 D2-1 U1-4
 VSUM	J9-2 D2-2 D1-2 P1-1 U1-3 R4-2 C5-1 U1-26 U1-33 U1-27 U1-25 U1-1 U1-24 U1-8 J1-1 U1-7 U1-2 
 unnamed_net1	R17-2 X2-1 
 GND	J4-1 C1-2 C2-2 C8-2 C5-2 C6-2 R3-1 C12-1 C3-2 C14-1 C7-2 U1-11 R13-1 R15-1 U1-13 U1-15 U1-18 X2-2 X1-2 C4-1 U2-2 C10-2 
-+5V	L1-1 J15-1 C16-1 U2-5 P4-1 C10-1 
++5V	L2-1 J15-1 C16-1 U2-5 P4-1 C10-1 
