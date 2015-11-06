@@ -601,7 +601,7 @@ C 37300 46200 1 0 0 gnd-1.sym
 T 39500 45300 9 12 1 0 0 0 3
 logpd - logarithmic photodetector
 logpd.sch - 1/1
-r1.1 - 2015 - nist/is/rj
+r1.2 - 2015 - nist/is/rj
 C 41000 52900 1 0 1 connector3-2.sym
 {
 T 40300 54600 5 10 1 1 0 0 1
