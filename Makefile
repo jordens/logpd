@@ -9,6 +9,7 @@ PCB_VIEW_PS_FLAGS ?= --fill-page --outline --ps-color --drill-copper \
 	--media Letter
 PCB_EPS_FLAGS ?= --only-visible
 PCB_GERBER_FLAGS ?= --name-style fixed
+PCB_BOM_FLAGS ?= --xy-unit mil
 GAF_PDF_FLAGS ?= --paper Letter --color
 GERBV_EXPORT_FLAGS ?= --border=5 --dpi=1200 --antialias
 MERGE_DRILL ?= 1
@@ -97,6 +98,7 @@ gerber:
 
 %.gerber-stamp : %.pcb | gerber
 	pcb -x gerber $(PCB_GERBER_FLAGS) --gerberfile gerber/$* $<
+	pcb -x bom $(PCB_BOM_FLAGS) --bomfile gerber/$*.bom --xyfile gerber/$*.xy $<
 	touch $@
 
 gerber/%.drill.cnc: %.gerber-stamp
@@ -104,7 +106,9 @@ gerber/%.drill.cnc: %.gerber-stamp
 	rm gerber/$*.*-drill.cnc
 
 %.gerber.zip: %.gerber-stamp $(if $(MERGE_DRILL),gerber/%.drill.cnc,)
-	zip -j - gerber/$*.*.gbr gerber/$*.*.cnc $(wildcard README.fab.txt) > $@
+	zip -j - gerber/$*.*.gbr gerber/$*.*.cnc \
+		gerber/$*.xy gerber/$*.bom \
+		$(wildcard README.fab.txt) > $@
 
 .PHONY: gerbv
 gerbv: $(TARGET).gerber-stamp
