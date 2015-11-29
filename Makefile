@@ -1,6 +1,6 @@
 TARGET ?= logpd
 
-PCB_PNG_FLAGS ?= --dpi 1200 --only-visible --use-alpha --format PNG \
+PCB_PNG_FLAGS ?= --dpi 600 --only-visible --use-alpha --format PNG \
 	--photo-mode --photo-mask-colour purple --photo-plating gold \
 	--photo-silk-colour white
 PCB_PRINT_PS_FLAGS ?= --drill-helper --align-marks --media Letter --scale 1 \
@@ -19,8 +19,9 @@ TSYMBOLS := $(TSYMS:.tsym=.sym)
 SYMBOLS := $(sort $(TSYMBOLS) $(wildcard sym/*.sym))
 SCHEMATICS := $(name).sch $(wildcard sym/*.sch)
 
-TARGETS := $(TARGET).sch.pdf $(TARGET).bom \
-	$(TARGET).top.png $(TARGET).bottom.png \
+SCH_TARGETS := $(TARGET).sch.pdf $(TARGET).bom
+
+PCB_TARGETS := $(TARGET).top.png $(TARGET).bottom.png \
 	$(TARGET).print.pdf $(TARGET).view.pdf \
 	$(TARGET).gerber.zip \
 	$(if $(MERGE_DRILL),gerber/$(TARGET).drill.cnc,)
@@ -29,11 +30,18 @@ PLUS_TARGETS := $(TARGET).eps \
 	$(TARGET).gerber.top.pdf $(TARGET).gerber.bottom.pdf \
 	gerber/$(TARGET).drill.cnc
 
-all: $(TARGETS)
+.PHONY: all
+all: all-sch all-pcb
+
+.PHONY: all-sch
+all-sch: $(SCH_TARGETS)
+
+.PHONY: all-pcb
+all-pcb: $(PCB_TARGETS)
 
 .PHONY: clean
 clean:
-	-rm -f $(TSYMBOLS) $(TARGETS) $(PLUS_TARGETS)
+	-rm -f $(TSYMBOLS) $(SCH_TARGETS) $(PCB_TARGETS) $(PLUS_TARGETS)
 	-rm -f $(TARGET).gerber-stamp
 	-rm -f gerber/*
 	-rmdir gerber
